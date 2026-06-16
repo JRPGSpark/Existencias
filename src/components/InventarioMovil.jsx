@@ -111,7 +111,7 @@ export default function InventarioMovil() {
         <header className="bg-blue-900 text-white p-4">
           <div className="max-w-7xl mx-auto px-2">
             <h1 className="text-xl font-bold tracking-wide">Existencias Globales</h1>
-            <p className="text-xs text-blue-200 mt-1">PARAISO RANGEL - MA SOCORRO BEDOLLA GUZMAN</p>
+            <p className="text-xs text-blue-200 mt-1">PARAISO RANGEL</p>
           </div>
         </header>
 
@@ -335,16 +335,7 @@ export default function InventarioMovil() {
 
           {/* Línea de Autoría Discreta */}
           <p className="text-xs text-gray-400 font-light">
-            Sitio desarrollado (Frontend) por{" "}
-            <a
-              href="https://www.linkedin.com/in/juan-roman-pantoja-garcia-6a9ab02ab/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 no-underline cursor-default hover:text-gray-400 select-text"
-              style={{ pointerEvents: 'auto' }}
-            >
-              Juan Roman Pantoja Garcia
-            </a>{" "}
+            Sitio desarrollado por{" "}
             - Departamento TI.
           </p>
 
