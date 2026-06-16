@@ -1,0 +1,106 @@
+[
+  {
+    "clave": "75002343",
+    "nombre": "123 ACEITE 1 LT",
+    "total": 2028,
+    "precioLista": 45.50,
+    "precioMinimo": 42.00,
+    "precioImpuesto": 52.78,
+    "sucursales": {
+      "PIPILA": 141,
+      "ABASOLO": 92,
+      "CHAMIZAL": 285,
+      "COLEGIO": 102,
+      "DURANGO": 0,
+      "FRUTERIA": 0,
+      "LOPEZ MORENO": 177,
+      "MORELOS": 347,
+      "PLAN DE AYALA": 240,
+      "PONCIANO": 211,
+      "QUERETARO": 220,
+      "URIANGATO": 213
+    },
+    "impuestos": [
+    "IVA 16%",
+    "Ret. ISR 1.25%"
+  ]
+  },
+  {
+    "clave": "7501026000195",
+    "nombre": "123 ACEITE 10 LT",
+    "total": 10,
+    "precioLista": 420.00,
+    "precioMinimo": 400.00,
+    "precioImpuesto": 487.20,
+    "sucursales": {
+      "PIPILA": 0,
+      "ABASOLO": 0,
+      "CHAMIZAL": 3,
+      "COLEGIO": 0,
+      "DURANGO": 0,
+      "FRUTERIA": 0,
+      "LOPEZ MORENO": 2,
+      "MORELOS": 3,
+      "PLAN DE AYALA": 1,
+      "PONCIANO": 0,
+      "QUERETARO": 0,
+      "URIANGATO": 1
+    },
+    "impuestos": [
+    "IVA 16%",
+    "Ret. ISR 1.25%"
+  ]
+  },
+  {
+    "clave": "7501026000119",
+    "nombre": "123 ACEITE 3.785 LT",
+    "total": 97,
+    "precioLista": 185.00,
+    "precioMinimo": 175.00,
+    "precioImpuesto": 214.60,
+    "sucursales": {
+      "PIPILA": 105,
+      "ABASOLO": 12,
+      "CHAMIZAL": 51,
+      "COLEGIO": 37,
+      "DURANGO": 564,
+      "FRUTERIA": 0,
+      "LOPEZ MORENO": 42,
+      "MORELOS": 49,
+      "PLAN DE AYALA": 21,
+      "PONCIANO": 17,
+      "QUERETARO": 17,
+      "URIANGATO": 64
+    },
+    "impuestos": [
+    "IVA 16%",
+    "Ret. ISR 1.25%"
+  ]
+  },
+  {
+    "clave": "75030036690245",
+    "nombre": "2 CAÑITAS CHARANDA 930 ML",
+    "total": 47,
+    "precioLista": 120.00,
+    "precioMinimo": 110.00,
+    "precioImpuesto": 139.20,
+    "sucursales": {
+      "PIPILA": 0,
+      "ABASOLO": 0,
+      "CHAMIZAL": 3,
+      "COLEGIO": 3,
+      "DURANGO": 0,
+      "FRUTERIA": 0,
+      "LOPEZ MORENO": 9,
+      "MORELOS": 9,
+      "PLAN DE AYALA": 13,
+      "PONCIANO": 0,
+      "QUERETARO": 0,
+      "URIANGATO": 10
+    },
+    "impuestos": [
+    "IVA 16%",
+    "Ret. ISR 1.25%"
+  ]
+  }
+]
