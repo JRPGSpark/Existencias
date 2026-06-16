@@ -157,7 +157,11 @@ export default function InventarioMovil() {
                     placeholder="Buscar por nombre o clave..."
                     value={busqueda}
                     onChange={(e) => {
-                      setBusqueda(e.target.value);
+                      // REGLA ANTI-INYECCIÓN SQL:
+                      // Reemplaza caracteres peligrosos (', ", --, ;, *, \, =, <, >) en tiempo real
+                      const entradaSegura = e.target.value.replace(/['"--;|*\\=<Point>]/g, "");
+
+                      setBusqueda(entradaSegura);
                       setMostrarSugerencias(true);
                     }}
                     onFocus={() => setMostrarSugerencias(true)}
@@ -165,6 +169,7 @@ export default function InventarioMovil() {
                     className="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 pr-10 text-sm text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
                   />
 
+                  {/* Botón de limpiar "✕" */}
                   {busqueda.length > 0 && (
                     <button
                       onClick={() => {
@@ -180,6 +185,7 @@ export default function InventarioMovil() {
                     </button>
                   )}
 
+                  {/* Menú Desplegable de Autocompletado */}
                   {mostrarSugerencias && busqueda.length > 0 && productosFiltrados.length > 0 && (
                     <ul className="absolute z-50 w-full bg-white border border-gray-300 rounded-lg shadow-xl mt-1 max-h-60 overflow-y-auto left-0 top-full">
                       {productosFiltrados.slice(0, 5).map((item, index) => (
@@ -233,41 +239,52 @@ export default function InventarioMovil() {
                     </h2>
                   </div>
 
-                  {/* Sección: Precios */}
-                  <div className="bg-gray-50 rounded-lg p-2 mb-3 grid grid-cols-3 gap-2 divide-x divide-gray-200 border border-gray-100">
+                  {/* Sección: Costo y Precio con Impuesto */}
+                  <div className="bg-gray-50 rounded-lg p-2 mb-3 grid grid-cols-2 gap-2 divide-x divide-gray-200 border border-gray-100 shadow-inner">
+                    {/* Columna 1: Costo */}
                     <div className="text-center px-1">
-                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wide block">P. Lista</span>
-                      <span className="text-sm font-bold text-gray-800">{formatearMoneda(item.precioLista)}</span>
+                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wide block mb-0.5">
+                        Costo
+                      </span>
+                      <span className="text-sm font-bold text-gray-800">
+                        {formatearMoneda(item.costo)}
+                      </span>
                     </div>
+
+                    {/* Columna 2: Precio con Impuesto */}
                     <div className="text-center px-1">
-                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wide block">P. Mínimo</span>
-                      <span className="text-sm font-bold text-gray-800">{formatearMoneda(item.precioMinimo)}</span>
-                    </div>
-                    <div className="text-center px-1">
-                      <span className="text-[10px] text-blue-600 font-bold uppercase tracking-wide block">C/Impuesto</span>
-                      <span className="text-sm font-black text-blue-700">{formatearMoneda(item.precioImpuesto)}</span>
+                      <span className="text-[10px] text-blue-600 font-bold uppercase tracking-wide block mb-0.5">
+                        C/Impuesto
+                      </span>
+                      <span className="text-sm font-black text-blue-700">
+                        {formatearMoneda(item.precioImpuesto)}
+                      </span>
                     </div>
                   </div>
 
-                  {/* NUEVA SECCIÓN: Combobox de Impuestos */}
+                  {/* NUEVA SECCIÓN: Recuadros Dinámicos de Impuestos */}
                   <div className="mb-4">
-                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wide block mb-1">
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wide block mb-1.5">
                       Impuestos Aplicados
                     </span>
+
                     {listaImpuestos.length > 0 ? (
-                      <select
-                        disabled={listaImpuestos.length === 1} // Si solo tiene uno, no es necesario desplegar nada
-                        className="w-full bg-white border border-gray-300 text-gray-700 text-xs rounded-lg p-2 outline-none font-medium focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                        defaultValue={listaImpuestos[0]}
-                      >
+                      <div className="grid grid-cols-2 gap-2">
                         {listaImpuestos.map((imp, idx) => (
-                          <option key={`${item.clave}-imp-${idx}`} value={imp}>
-                            {imp}
-                          </option>
+                          <div
+                            key={`${item.clave}-imp-${idx}`}
+                            className="bg-blue-50/50 border border-blue-100 rounded-lg p-2 text-center shadow-sm flex items-center justify-center min-h-[36px]"
+                          >
+                            <span className="text-xs font-semibold text-blue-800">
+                              {imp}
+                            </span>
+                          </div>
                         ))}
-                      </select>
+                      </div>
                     ) : (
-                      <span className="text-xs text-gray-400 italic block pl-1">Sin impuestos registrados</span>
+                      <span className="text-xs text-gray-400 italic block pl-1">
+                        Sin impuestos registrados
+                      </span>
                     )}
                   </div>
                 </div>
@@ -309,7 +326,7 @@ export default function InventarioMovil() {
               {/* Contenedor de la imagen pequeña */}
               <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center overflow-hidden border border-gray-700">
                 <img
-                  src="/ruta-de-tu-logo/logo-pr.png" // <-- Pon aquí la ruta de tu imagen
+                  src="/Logo.png" // <-- Pon aquí la ruta de tu imagen
                   alt="Logo Paraíso Rangel"
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -333,7 +350,7 @@ export default function InventarioMovil() {
             © 2026 PARAISO RANGEL. Todos los derechos reservados.
           </p>
 
-          {/* Línea de Autoría Discreta */}
+          {/* Línea de Autoría*/}
           <p className="text-xs text-gray-400 font-light">
             Sitio desarrollado por{" "}
             - Departamento TI.

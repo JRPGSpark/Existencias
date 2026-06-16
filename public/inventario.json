@@ -3,6 +3,7 @@
     "clave": "75002343",
     "nombre": "123 ACEITE 1 LT",
     "total": 2028,
+    "costo": 38.20,
     "precioLista": 45.50,
     "precioMinimo": 42.00,
     "precioImpuesto": 52.78,
@@ -29,6 +30,7 @@
     "clave": "7501026000195",
     "nombre": "123 ACEITE 10 LT",
     "total": 10,
+    "costo": 38.20,
     "precioLista": 420.00,
     "precioMinimo": 400.00,
     "precioImpuesto": 487.20,
@@ -55,6 +57,7 @@
     "clave": "7501026000119",
     "nombre": "123 ACEITE 3.785 LT",
     "total": 97,
+    "costo": 38.20,
     "precioLista": 185.00,
     "precioMinimo": 175.00,
     "precioImpuesto": 214.60,
@@ -81,6 +84,7 @@
     "clave": "75030036690245",
     "nombre": "2 CAÑITAS CHARANDA 930 ML",
     "total": 47,
+    "costo": 38.20,
     "precioLista": 120.00,
     "precioMinimo": 110.00,
     "precioImpuesto": 139.20,
@@ -100,7 +104,9 @@
     },
     "impuestos": [
     "IVA 16%",
-    "Ret. ISR 1.25%"
+    "Ret. ISR 1.25%",
+    "IEPS 8%",
+    "IEPS 26.5%"
   ]
   }
 ]
