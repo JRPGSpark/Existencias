@@ -13,6 +13,11 @@ export default function Login({ onLoginExitoso }) {
       setError("Por favor, llena todos los campos.");
       return;
     }
+    
+    /*if (usuario !== "admin" || contrasena !== "admin") {
+      setError("Usuario o contraseña incorrectos.");
+      return;
+    }*/
 
     setError("");
     // Aquí puedes mandar las credenciales en el futuro a tu API de C#
@@ -65,7 +70,7 @@ export default function Login({ onLoginExitoso }) {
                 value={usuario}
                 onChange={(e) => {
                   // Validación básica anti-SQLi para la entrada
-                  setUsuario(e.target.value.replace(/['"--;|*\\=<Point>]/g, ""));
+                  setUsuario(e.target.value.replace(/['"--;|*\\=<>]/g, ""));
                 }}
                 className="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
               />
@@ -82,7 +87,7 @@ export default function Login({ onLoginExitoso }) {
                 value={contrasena}
                 onChange={(e) => {
                   // Validación básica anti-SQLi para la entrada
-                  setContrasena(e.target.value.replace(/['"--;|*\\=<Point>]/g, ""));
+                  setContrasena(e.target.value.replace(/['"--;|*\\=<>]/g, ""));
                 }}
                 className="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
               />

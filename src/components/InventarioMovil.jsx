@@ -3,7 +3,7 @@
  * @description Sistema de Gestión de Existencias Globales
  * @author Juan Román Roman Pantoja Garcia<pantojagarciajuan9@gmail.com>
  * @copyright (c) 2026 Todos los derechos reservados.
- * @license Propiedad exclusiva de [Nombre Empresa/Tu Nombre] - Uso autorizado según contrato.
+ * @license Propiedad exclusiva de [Paraiso Rangel] - Uso autorizado según contrato.
  */
 
 import React, { useState, useEffect } from 'react';
@@ -159,7 +159,7 @@ export default function InventarioMovil() {
                     onChange={(e) => {
                       // REGLA ANTI-INYECCIÓN SQL:
                       // Reemplaza caracteres peligrosos (', ", --, ;, *, \, =, <, >) en tiempo real
-                      const entradaSegura = e.target.value.replace(/['"--;|*\\=<Point>]/g, "");
+                      const entradaSegura = e.target.value.replace(/['"--;|*\\=<>]/g, "");
 
                       setBusqueda(entradaSegura);
                       setMostrarSugerencias(true);
